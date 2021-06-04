@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+
+ */
+/* @import "bootstrap-sprockets";
+@import "bootstrap" */
+
+*{
+  font-family: sans-serif;
+}
+
+body {
+  margin-top: 50px;
+  display: block;
+  background-color: #F7B4CB;
+}
+
+.table-employee, .table-employee td, .table-employee th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: max-content;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.table-employee th {
+  text-align: left;
+} 
+
+.heading{
+  background-color : #A8D1DF
+}
+
+.add-employee {
+  padding: 10px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  background: linear-gradient(rgba(255, 166, 0, 0.733), orange);
+  border: thin solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color :black;
+  border-radius: 5px;
+}
+
+.button-class{
+  align-items: center;
+  position: center;
+  display: inline;
+  text-shadow: blanchedalmond;
+}
+
+.container{
+  font-size: 30;
+  flex: auto;
+  align-items: center;
+}
+
+.head-value {
+  text-align: left;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-field {
+  width: 250px;
+  height: 30px;
+  outline: none;
+  padding-left: 10px;
+}
+
+.dropdown-field{
+  width: 265px;
+  height: 38px;
+}
+
+.input-container {
+  margin: auto;
+  max-width: fit-content;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: smaller;
+}
+
+#submitButton {
+  background: linear-gradient(rgba(255, 166, 0, 0.733), orange);
+  padding: 10px 40px;
+  font-size: medium;
+  border: thin solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 20px;
+  margin-left: 35px;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0px;
+  font-weight: bold;
+  font-size: 20px;
+}

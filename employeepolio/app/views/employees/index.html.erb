@@ -1,0 +1,27 @@
+
+
+<div class="container">
+<div class = "employee-table">
+<table class="table-employee">
+<tr>
+<thead class="heading">
+    <th>Name</th>
+    <th>EmpId</th>
+    <th>View</th>
+    <th>Action</th>
+</thead>
+<tr>
+<% @employees.each do |employee| %>
+<tr>
+  <td> <%= employee.name %></td>
+  <td> <%= employee.empid%>   </td>
+  <td> <%= link_to 'View', employee_path(employee) %>  </td>
+  <td> <%= link_to 'Edit' , edit_employee_path(employee), :class => 'edit-link'%>  | <%= link_to 'Delete', employee, method: :delete %> </td>
+</tr>
+<% end %>
+<table>
+</div>
+<div class = "button-class">
+<%= link_to 'Add Employee', new_employee_path, :class => 'add-employee' %></button>
+<div>
+<%= will_paginate @employees%>

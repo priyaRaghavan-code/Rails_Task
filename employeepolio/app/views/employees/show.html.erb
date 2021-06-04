@@ -1,0 +1,137 @@
+<div class="input-container">
+    <form id="myform">
+      <table>
+        <tr>
+          <td></td>
+          <td id="heading-new">
+            <h2>Employee Details</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="head-value">Name</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.name%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Age</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.age%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Mobile</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.mobile%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Gender</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.gender%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Email</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.email%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Skills</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+               <%= @employee.skills%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Address</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+               <%= @employee.address%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">EmpId</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.empid%>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="head-value">Experience</p>
+          </td>
+          <td>
+            <div class="input-group">
+              <div class="text-box">
+                <%= @employee.experience %>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>
+            <div>
+              <%= link_to 'Go back', employees_path , :class => 'button-field', :id => 'submitButton'%>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
