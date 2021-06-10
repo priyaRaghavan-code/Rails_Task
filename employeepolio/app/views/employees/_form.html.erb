@@ -1,0 +1,57 @@
+<br/>
+<div class="form-group myform ">
+<%= form_for @employee do |f|%>
+  <div class= "form-adjacent">
+    <%= f.label :Name , class:"field-adjacent" %>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Age, class:"field-adjacent" %>
+    <%= f.text_field :age, class:"form-control"  %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :EmpID, class:"field-adjacent" %>
+    <%= f.text_field :empid, class:"form-control"  %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Gender, class:"field-adjacent" %>
+    <%= f.text_field :gender, class:"form-control" %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Phone, class:"field-adjacent" %>
+    <%= f.text_field :mobile, class:"form-control"  %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Email, class:"field-adjacent" %>
+    <%= f.text_field :email, class:"form-control"  %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Address, class:"field-adjacent" %>
+    <%= f.text_field :address, class:"form-control"  %>
+  </div>
+
+  <div class= "form-adjacent">
+    <%= f.label :Skills, class:"field-adjacent" %>
+    <%= f.text_field :skills, class:"form-control"  %>
+  </div>
+
+  <% if @employee.persisted? %>
+    <div class = "form-button">
+        <br/>
+        <%= f.submit 'Update', class: "btn btn-dark" %>
+    </div>
+  <% else %>
+    <div class = "form-button">
+        <br/>
+        <%= f.submit 'Add', class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+
+</div>
+<% end %>

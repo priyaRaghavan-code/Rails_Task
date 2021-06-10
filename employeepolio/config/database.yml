@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: employeepolio_development
-  username: postgres
-  password: 1234
+  username: priya
+  password: '1234'
   host: localhost
   port: 5432
   schema_search_path: myapp,sharedapp,public
@@ -65,8 +65,8 @@ development:
 test:
   <<: *default
   database: employeepolio_test
-  username: postgres
-  password: 1234
+  username: priya
+  password: '1234'
   host: localhost
   port: 5432
   schema_search_path: myapp,sharedapp,public
@@ -95,8 +95,8 @@ test:
 production:
   <<: *default
   database: employeepolio_production
-  username: postgres
-  password: 1234
+  username: priya
+  password: '1234'
   host: localhost
   port: 5432
   schema_search_path: myapp,sharedapp,public
