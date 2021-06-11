@@ -14,6 +14,10 @@
 
  */
 
+.myform {
+    margin-top: 1.5%
+}
+
 .form-adjacent {
     padding: .5%;
     display: flex;
