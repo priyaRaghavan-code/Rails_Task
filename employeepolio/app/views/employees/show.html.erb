@@ -21,3 +21,19 @@
   <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-secondary" %>
   <%= link_to 'Delete', @employee, method: :delete, class: "btn btn-dark"%>
 </div>
+
+<br />
+
+
+<div class="col-md-12">
+    <div class="card profile-card">
+            <div class="card-img-block img-fluid">
+                <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="Card image cap">
+            </div>
+            <div class="card-body pt-5">
+                <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
+                <h5 class="card-title"><%= @employee.name%></h5>
+                <p class="card-text"><%= @employee.address%></p>
+            </div>
+    </div>
+</div>

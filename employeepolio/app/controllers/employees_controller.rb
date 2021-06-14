@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     @employee.experiences.build
   end
-
+  
   def create #save new user
     @employee = Employee.new(allowed_params)
     if @employee.save
@@ -59,6 +59,5 @@ class EmployeesController < ApplicationController
     def employee
       @employee ||= Employee.find(params[:id])
     end
-      
 
 end
