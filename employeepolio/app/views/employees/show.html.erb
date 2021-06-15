@@ -1,5 +1,5 @@
 <br />
-
+<div class="show-class">
 <div class="col-md-9">
     <div class="card profile-card">
             <div class="embed-responsive embed-responsive-1by1">
@@ -27,6 +27,23 @@
                 </div>
           </div>
     <%end%>
+
+    <% if @employee.educations.exists? %>
+        <div class="card experinece-card">
+                <div class="card-body ">
+                    <h5 class="card-title">Education</h5>
+                    <div class="card-content">
+                      <% @employee.educations.each do |edu|%>
+                          <p class="role-name"><%= edu.institution_name%></p>
+                          <p class="grey-class"><%=edu.start_date%> To <%=edu.end_date%></p>
+                          <p class="grey-class"><%= edu.grade%> </p>
+                          <hr class="my-4">
+                      <% end %>
+                    </div>
+                </div>
+          </div>
+    <%end%>
+</div>
 </div>
 
 

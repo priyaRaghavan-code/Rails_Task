@@ -10,6 +10,7 @@ class EmployeesController < ApplicationController
   def new #creates the new user
     @employee = Employee.new
     @employee.experiences.build
+    @employee.educations.build
   end
 
   def create #save new user
@@ -53,7 +54,8 @@ class EmployeesController < ApplicationController
       :skills, 
       :address,
       :empid,
-      experiences_attributes: [:id,:employee_id,:start_date,:end_date,:company_name,:role,:location,:employement_type])
+      experiences_attributes: [:id,:employee_id,:start_date,:end_date,:company_name,:role,:location,:employement_type],
+      educations_attributes: [:id,:employee_id,:start_date,:end_date,:institution_name,:grade])
     end
 
     def employee

@@ -16,6 +16,13 @@
 
  */
 
+.form-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
 .select {
     width: 1110px;
     background-color: white;
@@ -25,6 +32,11 @@
     display: none;
     color: red;
     font-size: smaller;
+}
+
+.show-class {
+    display: flex;
+    justify-content: center;
 }
 
 .profile-card .card-img-block {

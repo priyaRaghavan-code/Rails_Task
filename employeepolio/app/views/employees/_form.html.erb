@@ -29,21 +29,20 @@
   </div>
 
   <div class = "field form-group">
+    <%= form.fields_for :educations do |f| %>
+    <% end %>
+    <%= link_to_add_fields 'AddEducation', form, :educations %><br/>
+  </div>
+
+  <div class = "field form-group">
     <%= form.fields_for :experiences do |f| %>
     <% end %>
-    <%= link_to_add_fields 'AddExp', form, :experiences %><br/>
+    <%= link_to_add_fields 'AddExperience', form, :experiences %><br/>
   </div>
 
   <br/>
-  <div class = "actions">
-        <%= form.submit 'Submit', class: "btn btn-dark" %>
-  </div>
-    
 
-
-  <%
-=begin%>
- <% if @employee.persisted? %>
+  <% if @employee.persisted? %>
     <div class = "form-button">
         <br/>
         <%= form.submit 'Update', class: "btn btn-dark" %>
@@ -54,8 +53,7 @@
         <%= form.submit 'Add', class: "btn btn-secondary" %>
     </div>
   <% end %> 
-<%
-=end%>
+
 <% end %>
 
 <script> 
