@@ -1,39 +1,33 @@
-<div class="jumbotron">
-  <h2 class="display-4"><%= @employee.name%></h2>
-  <p class="lead"><strong>Employee ID:</strong> <%= @employee.empid%></p>
-  <p class="lead"><strong>Age:</strong> <%= @employee.age%></p>
-  <p class="lead">Gender:<strong> <%= @employee.gender%></strong></p>
-  <p class="lead">Phone:<strong> <%= @employee.mobile%></strong></p>
-  <p class="lead">Email:<strong> <%= @employee.email%></strong></p>
-  <p class="lead">Address:<strong> <%= @employee.address%></strong></p>
-  <p class="lead">Skills:<strong> <%= @employee.skills%></strong></p>
-  <p class="lead">Experiences:<strong><%= @employee.experiences.count %></strong>
-  <p class="lead">
-    <strong>
-      <% @employee.experiences.each do |exp|%>
-        From:<%= exp.start_date %> |
-        To:<%= exp.end_date %> |
-        Name:<%= exp.company_name %>
-      <% end %>
-    </strong>
-  </p>
-  <hr class="my-4">
-  <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-secondary" %>
-  <%= link_to 'Delete', @employee, method: :delete, class: "btn btn-dark"%>
-</div>
-
 <br />
 
-
-<div class="col-md-12">
+<div class="col-md-9">
     <div class="card profile-card">
-            <div class="card-img-block img-fluid">
-                <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="Card image cap">
+            <div class="embed-responsive embed-responsive-1by1">
+                <img class="card-img-block img-fluid embed-responsive-item" src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="Card image cap">
             </div>
             <div class="card-body pt-5">
                 <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
                 <h5 class="card-title"><%= @employee.name%></h5>
-                <p class="card-text"><%= @employee.address%></p>
+                <p class="card-text"><%=@employee.address%> . <%=link_to 'Contact info',"#"%> </p>
             </div>
     </div>
+  <% if @employee.experiences.exists? %>
+        <div class="card experinece-card">
+                <div class="card-body ">
+                    <h5 class="card-title">Experience</h5>
+                    <div class="card-content">
+                      <% @employee.experiences.each do |exp|%>
+                          <p class="role-name"><%= exp.role%></p>
+                          <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
+                          <p class="grey-class"><%=exp.start_date%> To <%=exp.end_date%></p>
+                          <p class="grey-class"><%= exp.location %> </p>
+                          <hr class="my-4">
+                      <% end %>
+                    </div>
+                </div>
+          </div>
+    <%end%>
 </div>
+
+
+

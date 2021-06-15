@@ -12,7 +12,7 @@
     <% @employees.each do |employee| %>
       <tr>
         <td><%= link_to employee.name,employee_path(employee)%></td>
-        <td> <%= employee.empid%></td>
+        <td> <%= employee.id%></td>
         <td><%= link_to 'Edit', edit_employee_path(employee),class: "btn btn-outline-primary btn-sm" %></td>
         <td><%= link_to 'Delete', employee, method: :delete, class: "btn btn-outline-danger btn-sm"%></td>
       </tr>

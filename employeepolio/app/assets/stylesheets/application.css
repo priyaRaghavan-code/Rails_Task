@@ -11,28 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require bootstrap-datepicker
+ *= require_self
 
  */
 
-.myform {
-    margin-top: 1.5%
-}
-
-.form-adjacent {
-    padding: .5%;
-    display: flex;
-}
-
-.field-adjacent {
-    width: 10%;
-    margin-right: 2%;
-}
-
-.form-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+.select {
+    width: 1110px;
+    background-color: white;
 }
 
 .error-message {
@@ -42,10 +28,15 @@
 }
 
 .profile-card .card-img-block {
-    width: 900px;
+    width: 100%;
     height: 200px;
     overflow: hidden;
     float: left;
+}
+
+.embed-responsive {
+    height: 150px;
+    float: center;
 }
 
 .profile-card .card-body {
@@ -53,10 +44,10 @@
 }
 
 .profile-card .profile {
-    border-radius: 50%;
+    border-radius: 90%;
     position: absolute;
-    top: -42px;
-    left: 15%;
+    top: -60px;
+    left: 12%;
     max-width: 100px;
     border: 3px solid rgba(255, 255, 255, 1);
     -webkit-transform: translate(-50%, 0%);
@@ -64,15 +55,43 @@
 }
 
 .profile-card h5 {
-    font-weight: 600;
+    font-weight: bold;
     color: black;
+    font-size: 35px;
 }
 
 .profile-card .card-text {
-    font-weight: 300;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 35px;
 }
 
 .profile-card {
     margin-bottom: 20px;
+}
+
+.card-title {
+    font-weight: 35px;
+    color: black;
+}
+
+.experinece-card {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card-content {
+    margin-left: 80px;
+}
+
+.role-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.grey-class {
+    color: grey;
+}
+
+.card-content p {
+    margin: 0;
 }

@@ -9,11 +9,7 @@
   </div>
 
   <div class= "field form-group">
-    <%= form.text_field :empid, class:"form-control",placeholder:"Employee Id"  %>
-  </div>
-
-  <div class= "field form-group">
-    <%= form.text_field :gender, class:"form-control", placeholder:"Gender" %>
+    <%= form.select(:gender, ['-','Male', 'Female','Others'], {},class:"form-control") %>
   </div>
 
   <div class= "field form-group">

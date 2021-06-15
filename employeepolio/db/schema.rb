@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_161345) do
+ActiveRecord::Schema.define(version: 2021_06_15_120131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,23 @@ ActiveRecord::Schema.define(version: 2021_06_10_161345) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "empid"
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.integer "empid"
     t.string "start_date"
     t.string "end_date"
     t.string "company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
+    t.string "location"
+    t.string "employement_type"
+    t.bigint "employees_id"
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_experiences_on_employee_id"
+    t.index ["employees_id"], name: "index_experiences_on_employees_id"
   end
 
+  add_foreign_key "experiences", "employees"
+  add_foreign_key "experiences", "employees", column: "employees_id"
 end

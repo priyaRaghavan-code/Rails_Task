@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     @employee.experiences.build
   end
-  
+
   def create #save new user
     @employee = Employee.new(allowed_params)
     if @employee.save
@@ -53,7 +53,7 @@ class EmployeesController < ApplicationController
       :skills, 
       :address,
       :empid,
-      experiences_attributes: [:id,:empid,:start_date,:end_date,:company_name])
+      experiences_attributes: [:id,:employee_id,:start_date,:end_date,:company_name,:role,:location,:employement_type])
     end
 
     def employee
