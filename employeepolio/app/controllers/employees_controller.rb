@@ -3,17 +3,17 @@ class EmployeesController < ApplicationController
     @employees = Employee.paginate(:page => params[:page], :per_page => 10)
   end
 
-  def show #display the existing user
+  def show 
     employee
   end
 
-  def new #creates the new user
+  def new 
     @employee = Employee.new
     @employee.experiences.build
     @employee.educations.build
   end
 
-  def create #save new user
+  def create
     @employee = Employee.new(allowed_params)
     if @employee.save
       flash.now[:success] = "Saved the Employee Details"
@@ -24,11 +24,11 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def edit #display form for existing user
+  def edit 
     employee
   end
 
-  def update #save changes
+  def update 
     if employee.update(allowed_params)
       flash.now[:success] = "Saved the Employee Details"
       redirect_to employees_path

@@ -69,7 +69,7 @@
 .profile-card h5 {
     font-weight: bold;
     color: black;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .profile-card .card-text {
@@ -91,9 +91,10 @@
     margin-bottom: 10px;
 }
 
-.card-content {
+
+/* .card-content {
     margin-left: 80px;
-}
+} */
 
 .role-name {
     font-size: 20px;
@@ -106,4 +107,60 @@
 
 .card-content p {
     margin: 0;
+}
+
+.card-content .img-exp {
+    margin-bottom: -90px;
+    left: -80%;
+    max-width: 10%;
+}
+
+.data {
+    margin-top: 20px;
+    margin-left: 100px;
+    /* top: -40px; */
+    bottom: -20px;
+}
+
+.index-class {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.employee-content .profile {
+    max-width: 8%;
+    margin-bottom: -90px;
+}
+
+.employee-content .employee-data {
+    margin-left: 70px;
+}
+
+.employee-data .emp-name {
+    font-weight: bold;
+    color: black;
+}
+
+.emp-name:hover {
+    color: blue;
+}
+
+.employee-content p {
+    margin: 0;
+}
+
+.add-emp-btn {
+    display: flex;
+    margin-left: 73%;
+    margin-bottom: 10px;
+}
+
+.black-heading {
+    color: black;
+    font-weight: bold;
+}
+
+.email-img {
+    width: 6%;
 }

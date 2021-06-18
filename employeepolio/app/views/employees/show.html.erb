@@ -8,24 +8,29 @@
             <div class="card-body pt-5">
                 <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
                 <h5 class="card-title"><%= @employee.name%></h5>
-                <p class="card-text"><%=@employee.address%> . <%=link_to 'Contact info',"#"%> </p>
+                <p class="card-text"><%=@employee.address%> . <%=link_to 'Contact info', "#contact_modal","data-toggle" => "modal"%> </p>
             </div>
     </div>
   <% if @employee.experiences.exists? %>
         <div class="card experinece-card">
-                <div class="card-body ">
-                    <h5 class="card-title">Experience</h5>
-                    <div class="card-content">
-                      <% @employee.experiences.each do |exp|%>
-                          <p class="role-name"><%= exp.role%></p>
-                          <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
-                          <p class="grey-class"><%=exp.start_date%> To <%=exp.end_date%></p>
-                          <p class="grey-class"><%= exp.location %> </p>
-                          <hr class="my-4">
-                      <% end %>
-                    </div>
-                </div>
-          </div>
+              <div class="card-body ">
+                  <h5 class="card-title">Experience</h5>
+                  <div class="card-content">
+                    <% @employee.experiences.each do |exp|%>
+                        <div class="img-exp">
+                          <img class="img-fluid" src="https://www.nicepng.com/png/full/205-2053714_font-work-comments-work-experience-icon-for-resume.png" alt="Experience Image">
+                        </div>
+                        <div class= "data">
+                        <p class="role-name"><%= exp.role%></p>
+                        <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
+                        <p class="grey-class"><%=exp.start_date%> To <%=exp.end_date%></p>
+                        <p class="grey-class"><%= exp.location %> </p>
+                        <hr class="my-4">
+                        </div>
+                    <% end %>
+                  </div>
+              </div>
+        </div>
     <%end%>
 
     <% if @employee.educations.exists? %>
@@ -34,10 +39,15 @@
                     <h5 class="card-title">Education</h5>
                     <div class="card-content">
                       <% @employee.educations.each do |edu|%>
+                        <div class="img-exp">
+                          <img class="img-fluid" src="https://images.vexels.com/media/users/3/143402/isolated/preview/afbbf15d5e82a1c4fb5a55c4eacf3003-icono-de-gorro-de-graduaci-oacute-n-by-vexels.png" alt="Education Image">
+                        </div>
+                          <div class="data">
                           <p class="role-name"><%= edu.institution_name%></p>
                           <p class="grey-class"><%=edu.start_date%> To <%=edu.end_date%></p>
                           <p class="grey-class"><%= edu.grade%> </p>
                           <hr class="my-4">
+                          </div>
                       <% end %>
                     </div>
                 </div>
@@ -45,6 +55,28 @@
     <%end%>
 </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="contact_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @employee.name%></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="black-heading"><%=image_tag "email.png",class:"email-img",alt:"Profile image"%> Email</span><br/>
+        <%= @employee.email%><br/>
+        <span class="black-heading"><%=image_tag "phone.png",class:"email-img",alt:"Profile image"%> Mobile Number</span><br/>
+        <p class="modal-data"><%= @employee.mobile%></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
