@@ -36,11 +36,15 @@
       <div class="employee-content">
         <% @employees.each do |employee| %>
           <div class="employee-img">
+            <% if employee.image.attached?%>
+            <%= image_tag (employee.image), class:"profile", alt:"profile-image"%>
+            <%else%>
             <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
+            <%end%>
           </div>
           <div class= "employee-data">
             <p><%=link_to employee.name,employee_path(employee),class:"emp-name"%></p>
-            Working as software engineer
+            <p><%=employee.about%></p>
             <p class="grey-class"><%=employee.address%></p>
             <hr class="my-4">
           </div>

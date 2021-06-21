@@ -131,10 +131,14 @@
 .employee-content .profile {
     max-width: 8%;
     margin-bottom: -90px;
+    border-radius: 50%;
+    margin-right: 15px;
+    left: 12%;
+    transform: translate(10%, 0%);
 }
 
 .employee-content .employee-data {
-    margin-left: 70px;
+    margin-left: 80px;
 }
 
 .employee-data .emp-name {
@@ -163,4 +167,24 @@
 
 .email-img {
     width: 6%;
+}
+
+.modal-backdrop {
+    display: none;
+    opacity: 0 !important;
+}
+
+.form-heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card {
+    box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.spacing-class {
+    margin-top: 40px;
+    margin-bottom: 40px
 }

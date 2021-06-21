@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.paginate(:page => params[:page], :per_page => 10)
+    @employees = Employee.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show 
@@ -54,6 +54,9 @@ class EmployeesController < ApplicationController
       :skills, 
       :address,
       :empid,
+      :image,
+      :banner,
+      :about,
       experiences_attributes: [:id,:employee_id,:start_date,:end_date,:company_name,:role,:location,:employement_type],
       educations_attributes: [:id,:employee_id,:start_date,:end_date,:institution_name,:grade])
     end

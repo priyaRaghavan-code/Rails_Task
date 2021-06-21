@@ -1,48 +1,130 @@
-<br/>
 <%= form_for @employee do |form|%>
-  <div class= "field form-group">
-    <%= form.text_field :name, class:"form-control" ,placeholder: "Name"%>
-  </div>
+ <p class="spacing-class">
+  <div class = "container">
+    <div class="card">
+      <div class="card-body">
+       <p class="form-heading">Personal Details</p>
+        <div class="row">
+          <div class="col">
+            <div class= "field form-group">
+                <%=form.label :Name%>
+                <%= form.text_field :name, class:"form-control" ,placeholder: "Name"%>
+            </div>
+          </div>
+          <div class="col">
+            <div class= "field form-group">
+                <%= form.label :Age%>
+                <%= form.text_field :age, class:"form-control", placeholder: "Age"  %>
+            </div>
+          </div>
+        </div>
 
-  <div class= "field form-group">
-    <%= form.text_field :age, class:"form-control", placeholder: "Age"  %>
-  </div>
+        <div class="row">
+          <div class="col">
+            <div class= "field form-group">
+                  <%= form.label :Gender %>
+                  <%= form.select(:gender, ['-','Male', 'Female','Others'], {},class:"form-control") %>
+            </div>
+          </div>
+          <div class="col">
+              <div class= "field form-group">
+                <%= form.label :Mobile %>
+                <%= form.text_field :mobile, class:"form-control", placeholder:"Mobile"  %>
+              </div>
+          </div>
+        </div>
 
-  <div class= "field form-group">
-    <%= form.select(:gender, ['-','Male', 'Female','Others'], {},class:"form-control") %>
-  </div>
+        <div class="row">
+          <div class="col">
+            <div class= "field form-group">
+                <%= form.label :Email%>
+                <%= form.text_field :email, class:"form-control", placeholder:"Email"  %>
+            </div>
+          </div>
+          <div class="col">
+            <div class= "field form-group">
+                <%= form.label :Address%>
+                <%= form.text_field :address, class:"form-control", placeholder:"Address"  %>
+            </div>
+          </div>
+        </div>
 
-  <div class= "field form-group">
-    <%= form.text_field :mobile, class:"form-control", placeholder:"Mobile"  %>
-  </div>
+        <div class="row">
+          <div class="col">
+            <div class= "field form-group">
+              <%= form.label :Skills%>
+              <%= form.text_field :skills, class:"form-control" , placeholder: "Skills" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class= "field form-group">
+              <%=form.label :Profile_Image%>
+              <%=form.file_field :image, class:"form-control"%>
+            </div>
+          </div>
+        </div>
 
-  <div class= "field form-group">
-    <%= form.text_field :email, class:"form-control", placeholder:"Email"  %>
+        <div class="row">
+          <div class="col">
+            <div class= "field form-group">
+              <%=form.label :Background_Image%>
+              <%=form.file_field :banner, accept: 'image/png, image/gif, image/jpeg',class:"form-control"%>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class= "field form-group">
+              <%=form.label :About%>
+              <%=form.text_field :about, class:"form-control" , placeholder: "Skills"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- 
-  <div class= "field form-group">
-    <%= form.text_field :address, class:"form-control", placeholder:"Address"  %>
+  </p>
+
+  <p class="spacing-class">
+  <div class = "container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+              <div class = "field form-group">
+                <%=form.label :Education,class:"form-heading"%>
+                <%=form.fields_for :educations do |f| %>
+                  <%= render "education_fields", f: f%>
+                <% end %>
+                <%= link_to_add_fields 'Add', form, :educations %><br/>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  </p>
 
-  <div class= "field form-group">
-    <%= form.text_field :skills, class:"form-control" , placeholder: "Skills" %>
+  <p class="spacing-class">
+  <div class = "container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class = "field form-group">
+              <%=form.label :Experience,class:"form-heading"%>
+              <%= form.fields_for :experiences do |f| %>
+                <%=render 'experience_fields', f: f%>
+              <% end %>
+              <%= link_to_add_fields 'Add', form, :experiences %><br/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  </p>
 
-  <div class = "field form-group">
-    <%= form.fields_for :educations do |f| %>
-    <% end %>
-    <%= link_to_add_fields 'AddEducation', form, :educations %><br/>
-  </div>
-
-  <div class = "field form-group">
-    <%= form.fields_for :experiences do |f| %>
-    <% end %>
-    <%= link_to_add_fields 'AddExperience', form, :experiences %><br/>
-  </div>
-
-  <br/>
-
-  <% if @employee.persisted? %>
+   <% if @employee.persisted? %>
     <div class = "form-button">
         <br/>
         <%= form.submit 'Update', class: "btn btn-dark" %>
@@ -54,7 +136,7 @@
     </div>
   <% end %> 
 
-<% end %>
+<%end%>
 
 <script> 
 
@@ -74,5 +156,8 @@
     return event.preventDefault();
   });
 </script>
+
+
+
 
 
