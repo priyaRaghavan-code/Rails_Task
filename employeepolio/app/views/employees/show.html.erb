@@ -47,7 +47,7 @@
                         <div class= "data">
                         <p class="role-name"><%= exp.role%></p>
                         <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
-                        <p class="grey-class"><%=exp.start_date%> To <%=exp.end_date%></p>
+                        <p class="grey-class"><%=format_date_string(exp.start_date)%> To <%=format_date_string(exp.end_date)%></p>
                         <p class="grey-class"><%= exp.location %> </p>
                         <hr class="my-4">
                         </div>

@@ -25,10 +25,17 @@
 <%
 =end%>
 
-<div class ="add-emp-btn">
-  <%= link_to 'Add Employee', new_employee_path, class: "btn btn-secondary" %>
-</div>
+<%
+=begin%>
+ <div class ="add-emp-btn">
+  <%= link_to 'Add Employee', new_employee_path, class: "btn btn-secondary"%>
+</div> 
+<%
+=end%>
 
+<%= link_to new_employee_path do %>
+   <i class="fas fa-plus-circle"  aria-hidden="true"></i>
+<%end%>
 
 <div class= "index-class">
   <div class="col-md-9">
@@ -54,4 +61,3 @@
   </div>
 </div>
 
-<%= will_paginate @employees%>

@@ -7,4 +7,7 @@ class Employee < ApplicationRecord
 
   has_one_attached :image
   has_one_attached :banner
+
+  # validates :name,:age,:mobile,:gender,:email,:skills,:address, :presence => true
+  # validates :name, :length => {:minimum => 15}
 end

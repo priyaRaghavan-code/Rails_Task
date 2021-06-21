@@ -16,6 +16,18 @@
 
  */
 
+.navbar {
+    background-color: #0494fe;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: grey;
+}
+
 .form-button {
     display: flex;
     justify-content: center;

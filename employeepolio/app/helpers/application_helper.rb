@@ -17,4 +17,9 @@ module ApplicationHelper
 
   end
 
+  def format_date_string(string)
+    date = DateTime.strptime(string, "%Y-%m-%d")
+    date.strftime("%d/%m/%Y")
+  end
+
 end
