@@ -9,5 +9,8 @@ class Employee < ApplicationRecord
   has_one_attached :banner
 
   # validates :name,:age,:mobile,:gender,:email,:skills,:address, :presence => true
-  # validates :name, :length => {:minimum => 15}
+  # validates :name,  presence: true, length: { maximum: 70 }
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, length: { maximum: 300 },format: { with: VALID_EMAIL_REGEX },uniqueness: true
+
 end

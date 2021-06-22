@@ -16,16 +16,24 @@
 
  */
 
+:root {
+    --blue-color: #0494fe;
+    --white-color: white;
+    --black-color: black;
+    --grey-color: grey;
+    --mild-grey-color: #f3f2ef;
+}
+
 .navbar {
-    background-color: #0494fe;
+    background-color: var(--blue-color)
 }
 
 .navbar-brand {
-    color: white;
+    color: var(--white-color)
 }
 
 .navbar-brand:hover {
-    color: grey;
+    color: var(--black-color);
 }
 
 .form-button {
@@ -37,7 +45,7 @@
 
 .select {
     width: 1110px;
-    background-color: white;
+    background-color: var(--white-color);
 }
 
 .error-message {
@@ -80,7 +88,7 @@
 
 .profile-card h5 {
     font-weight: bold;
-    color: black;
+    color: var(--black-color);
     font-size: 25px;
 }
 
@@ -94,8 +102,9 @@
 }
 
 .card-title {
+    margin-top: -30px;
     font-weight: 35px;
-    color: black;
+    color: var(--black-color);
 }
 
 .experinece-card {
@@ -114,7 +123,7 @@
 }
 
 .grey-class {
-    color: grey;
+    color: var(--grey-color);
 }
 
 .card-content p {
@@ -146,7 +155,7 @@
     border-radius: 50%;
     margin-right: 15px;
     left: 12%;
-    transform: translate(10%, 0%);
+    transform: translate(20%, 0%);
 }
 
 .employee-content .employee-data {
@@ -155,7 +164,7 @@
 
 .employee-data .emp-name {
     font-weight: bold;
-    color: black;
+    color: var(--black-color);
 }
 
 .emp-name:hover {
@@ -173,7 +182,7 @@
 }
 
 .black-heading {
-    color: black;
+    color: var(--black-color);
     font-weight: bold;
 }
 
@@ -199,4 +208,20 @@
 .spacing-class {
     margin-top: 40px;
     margin-bottom: 40px
+}
+
+.icon-edit {
+    margin-bottom: -20px;
+    margin-left: 95%;
+    max-width: 8%;
+}
+
+.icon-edit:hover {
+    color: var(--grey-color);
+    border-radius: 20%;
+}
+
+.plus-icon {
+    overflow: hidden;
+    max-width: 100%;
 }

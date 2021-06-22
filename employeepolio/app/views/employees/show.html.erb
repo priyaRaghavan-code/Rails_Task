@@ -15,7 +15,7 @@
                 <%else%>
                 <%= image_tag "user.png", class:"profile", alt:"profile-image"%>
                 <%end%>
-                <h5 class="card-title"><%= @employee.name%></h5>
+                <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i><%= @employee.name%></h5>
                 <p class="card-text"><%=@employee.address%> . <%=link_to 'Contact info', "#contact_modal","data-toggle" => "modal"%> </p>
             </div>
     </div>
@@ -25,7 +25,7 @@
   <p class="spacing-class">
     <div class="card experinece-card">
       <div class="card-body ">
-          <h5 class="card-title">About</h5>
+          <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>About</h5>
           <div class="card-content">
             <p class="black-name"><%=@employee.about%></p>
           </div>
@@ -38,7 +38,7 @@
   <% if @employee.experiences.exists? %>
         <div class="card experinece-card">
               <div class="card-body ">
-                  <h5 class="card-title">Experience</h5>
+                  <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>Experience</h5>
                   <div class="card-content">
                     <% @employee.experiences.each do |exp|%>
                         <div class="img-exp">
@@ -62,7 +62,7 @@
     <% if @employee.educations.exists? %>
         <div class="card experinece-card">
                 <div class="card-body ">
-                    <h5 class="card-title">Education</h5>
+                    <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>Education</h5>
                     <div class="card-content">
                       <% @employee.educations.each do |edu|%>
                         <div class="img-exp">
@@ -94,7 +94,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <span class="black-heading"><%=image_tag "email.png",class:"email-img",alt:"Profile image"%> Email</span><br/>
+        <span class="black-heading"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i><%=image_tag "email.png",class:"email-img",alt:"Profile image"%> Email</span><br/>
         <%= @employee.email%><br/>
         <span class="black-heading"><%=image_tag "phone.png",class:"email-img",alt:"Profile image"%> Mobile Number</span><br/>
         <p class="modal-data"><%= @employee.mobile%></p>

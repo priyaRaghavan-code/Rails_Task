@@ -34,7 +34,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'jquery-rails', '~> 4.4'
 gem 'bootstrap-datepicker-rails', '~> 1.9', '>= 1.9.0.1'
 gem 'jquery-ui-rails'
-gem 'american_date', '~> 1.1', '>= 1.1.1'
+gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
+gem 'rexml', '~> 3.2', '>= 3.2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
