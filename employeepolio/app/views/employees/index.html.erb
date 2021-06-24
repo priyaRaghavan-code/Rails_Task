@@ -32,9 +32,10 @@
 </div> 
 <%
 =end%>
-
+<%if user_signed_in? %>
 <%= link_to new_employee_path do %>
    <i class="fas fa-plus-circle fa-2x plus-icon"  aria-hidden="true"></i>
+<%end%>
 <%end%>
 
 <div class= "index-class">

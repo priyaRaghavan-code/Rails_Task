@@ -15,13 +15,23 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(allowed_params)
-    if @employee.save
-      flash.now[:success] = "Saved the Employee Details"
-      redirect_to employees_path
-    else
-      flash.now[:error] = "Unable to add the employee"
-      render 'new'
+    # if @employee.save
+    #   flash.now[:success] = "Saved the Employee Details"
+    #   redirect_to employees_path
+    # else
+    #   flash.now[:error] = "Unable to add the employee"
+    #   render 'new'
+    # end
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to @employee, notice: "Employee was successfully created." }
+        format.json { render :show, status: :created, location: @employee }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
     end
+
   end
 
   def edit 

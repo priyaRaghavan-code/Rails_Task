@@ -1,0 +1,11 @@
+<% @employee.educations.each do |edu|%>
+  <div class="img-exp">
+    <img class="img-fluid" src="https://images.vexels.com/media/users/3/143402/isolated/preview/afbbf15d5e82a1c4fb5a55c4eacf3003-icono-de-gorro-de-graduaci-oacute-n-by-vexels.png" alt="Education Image">
+  </div>
+    <div class="data">
+      <p class="role-name"><%= edu.institution_name%></p>
+      <p class="grey-class"><%=format_date_string(edu.start_date)%> To <%=format_date_string(edu.end_date)%></p>
+      <p class="grey-class"><%= edu.grade%> </p>
+      <hr class="my-4">
+    </div>
+<% end %>

@@ -40,18 +40,7 @@
               <div class="card-body ">
                   <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>Experience</h5>
                   <div class="card-content">
-                    <% @employee.experiences.each do |exp|%>
-                        <div class="img-exp">
-                          <img class="img-fluid" src="https://www.nicepng.com/png/full/205-2053714_font-work-comments-work-experience-icon-for-resume.png" alt="Experience Image">
-                        </div>
-                        <div class= "data">
-                        <p class="role-name"><%= exp.role%></p>
-                        <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
-                        <p class="grey-class"><%=format_date_string(exp.start_date)%> To <%=format_date_string(exp.end_date)%></p>
-                        <p class="grey-class"><%= exp.location %> </p>
-                        <hr class="my-4">
-                        </div>
-                    <% end %>
+                    <%= render partial:"experiences/list_experience" %>
                   </div>
               </div>
         </div>
@@ -60,21 +49,16 @@
 
     <p class="spacing-class">
     <% if @employee.educations.exists? %>
-        <div class="card experinece-card">
+        <div class="card experinece-card"  >
                 <div class="card-body ">
-                    <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>Education</h5>
+                    <div id="educationid" class="">
+                      <h5 class="card-title"><%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe, edit_employee_education_path(@employee,@employee.educations[0]),:remote=>true%>
+Education</h5>
+                    </div>
                     <div class="card-content">
-                      <% @employee.educations.each do |edu|%>
-                        <div class="img-exp">
-                          <img class="img-fluid" src="https://images.vexels.com/media/users/3/143402/isolated/preview/afbbf15d5e82a1c4fb5a55c4eacf3003-icono-de-gorro-de-graduaci-oacute-n-by-vexels.png" alt="Education Image">
-                        </div>
-                          <div class="data">
-                          <p class="role-name"><%= edu.institution_name%></p>
-                          <p class="grey-class"><%=edu.start_date%> To <%=edu.end_date%></p>
-                          <p class="grey-class"><%= edu.grade%> </p>
-                          <hr class="my-4">
-                          </div>
-                      <% end %>
+                      <div id="educationContainers">
+                        <%= render partial: 'educations/list_education' ,locals: {educations: @employee.educations}%>
+                      </div>
                     </div>
                 </div>
           </div>
@@ -98,7 +82,6 @@
         <%= @employee.email%><br/>
         <span class="black-heading"><%=image_tag "phone.png",class:"email-img",alt:"Profile image"%> Mobile Number</span><br/>
         <p class="modal-data"><%= @employee.mobile%></p>
-
       </div>
     </div>
   </div>
