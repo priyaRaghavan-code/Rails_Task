@@ -102,7 +102,7 @@
 }
 
 .card-title {
-    margin-top: -30px;
+    margin-top: -6px;
     font-weight: 35px;
     color: var(--black-color);
 }
@@ -225,4 +225,8 @@
 .plus-icon {
     overflow: hidden;
     max-width: 100%;
+}
+
+.fa-pencil-alt {
+    color: black;
 }

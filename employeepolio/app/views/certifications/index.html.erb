@@ -1,0 +1,10 @@
+<% @certifications.each do |certificate| %>
+  <p><%= certificate.title %></p>
+  <p><%= certificate.issued_date %></p>
+  <p><%= certificate.expiration_date %></p>
+  <p><%= certificate.issued_by %></p>
+<% end %>
+
+<%=  link_to "New Form", "#",id: "new_certificate", class:"btn btn-primary", data: { url: new_certification_path }%>
+
+<div id="form_container"></div>

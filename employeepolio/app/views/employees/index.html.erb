@@ -42,23 +42,38 @@
   <div class="col-md-9">
     <div class="card employee-card">
       <div class="employee-content">
-        <% @employees.each do |employee| %>
-          <div class="employee-img">
-            <% if employee.image.attached?%>
-            <%= image_tag (employee.image), class:"profile", alt:"profile-image"%>
+        <%if user_signed_in? %>
+          <% @employees.each do |employee| %>
+            <div class="employee-img">
+              <% if employee.image.attached?%>
+              <%= image_tag (employee.image), class:"profile", alt:"profile-image"%>
+              <%else%>
+              <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
+              <%end%>
+            </div>
+            <div class= "employee-data">
+              <p><%=link_to employee.name,employee_path(employee),class:"emp-name"%></p>
+              <p><%=employee.about%></p>
+              <p class="grey-class"><%=employee.address%></p>
+              <hr class="my-4">
+            </div>
+          <% end %>
+        <%else%>
+            <%if user_signed_in? %>
+            <li class="nav-item">
+            <%=link_to "Edit",edit_user_registration_path,class:"navbar-brand"%>
+            <%= link_to "Logout", destroy_user_session_path,method: :delete,class:"navbar-brand"%>
+            </li>
             <%else%>
-            <%= image_tag 'user.png', class:"profile", alt:"profile-image"%>
-            <%end%>
-          </div>
-          <div class= "employee-data">
-            <p><%=link_to employee.name,employee_path(employee),class:"emp-name"%></p>
-            <p><%=employee.about%></p>
-            <p class="grey-class"><%=employee.address%></p>
-            <hr class="my-4">
-          </div>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path,class:"navbar-brand" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path,class:"navbar-brand" %>
+          </li>
+          <% end %>
         <% end %>
         </div>
     </div>
   </div>
 </div>
-

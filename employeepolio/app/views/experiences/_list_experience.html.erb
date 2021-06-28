@@ -1,4 +1,7 @@
 <% @employee.experiences.each do |exp|%>
+  <div class="edit-img">
+      <%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe, edit_employee_education_path(@employee,exp),:remote=>true%>
+  </div>
   <div class="img-exp">
     <img class="img-fluid" src="https://www.nicepng.com/png/full/205-2053714_font-work-comments-work-experience-icon-for-resume.png" alt="Experience Image">
   </div>

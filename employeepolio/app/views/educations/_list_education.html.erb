@@ -1,4 +1,7 @@
 <% @employee.educations.each do |edu|%>
+  <div class="edit-img">
+      <%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe, edit_employee_education_path(@employee,edu),:remote=>true%>
+  </div>
   <div class="img-exp">
     <img class="img-fluid" src="https://images.vexels.com/media/users/3/143402/isolated/preview/afbbf15d5e82a1c4fb5a55c4eacf3003-icono-de-gorro-de-graduaci-oacute-n-by-vexels.png" alt="Education Image">
   </div>
