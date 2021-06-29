@@ -19,6 +19,7 @@ class EducationsController < ApplicationController
   
   def edit
     @employee.educations.find(params[:id])
+    render layout: false 
   end
 
 

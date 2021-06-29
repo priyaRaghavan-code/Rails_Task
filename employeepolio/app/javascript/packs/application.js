@@ -27,6 +27,7 @@ import "controllers"
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.css")
 require("packs/certification")
+require("packs/education")
 
 document.addEventListener("turbolinks:load", () => {
     flatpickr("[data-behavior='flatpickr']", {
