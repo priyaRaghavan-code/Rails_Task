@@ -1,1 +1,25 @@
-<h3>Hi Priya</h3>
+<%= form_with(model: [@employee,@education]) do |f| %>
+  <div class = "container">
+      <div class="row">
+        <div class="col">
+          <%=f.label :Institution_Name%>
+          <%=f.text_field :institution_name, class:"form-control edu_name", placeholder: "Institution Name" %>
+        </div>
+        <div class="col">
+          <%=f.label :Grade%>
+          <%=f.text_field :grade, class:"form-control edu_grade", placeholder: "Grade" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <%=f.label :start_Date%>
+          <%=f.date_field :start_date, class:"form-control edu_sdate" ,placeholder: "StartDate"%>
+        </div>
+        <div class="col">
+          <%=f.label :End_Date%>
+          <%=f.date_field :end_date, class:"form-control edu_edate", placeholder: "EndDate" %>
+        </div>
+      </div>
+  </div>
+  <% end%>

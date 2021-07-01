@@ -18,8 +18,10 @@ class EducationsController < ApplicationController
 
   
   def edit
-    @employee.educations.find(params[:id])
-    render layout: false 
+    @education = @employee.educations.find(params[:id])
+    respond_to do |format|
+      format.json { render json: { html: render_to_string(partial: 'edit_education_modal.html.erb')} }
+    end
   end
 
 
@@ -41,9 +43,11 @@ class EducationsController < ApplicationController
   def update
     respond_to do |format|
       if @education.update(education_params)
-          format.js {render :action => "create"}
+        format.js {render :action => "create"}
         format.html { redirect_to employee_education_path(@employee), notice: 'Experience was successfully updated.' }
-        format.json { render :show, status: :ok, location: @education }
+        format.json { render json: { html: render_to_string(partial: 'list_education') } }
+        # format.json { render json: { html: render_to_string(partial: 'edit_education_modal.html.erb')} }
+
       else
         format.html { render :edit }
         format.json { render json: @education.errors, status: :unprocessable_entity }
