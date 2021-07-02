@@ -230,3 +230,7 @@
 .fa-pencil-alt {
     color: black;
 }
+
+.modal-footer .save-btn {
+    border-radius: 50px;
+}

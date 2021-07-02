@@ -5,11 +5,11 @@
       <div class="card-body">
       <div class="">
         <% if @employee.errors.any? %>
-        <div class="alert alert-danger">
-          <% @employee.errors.each do |error| %>
-          <%= error.full_message %>
-          <% end %>
-        </div>
+          <div class="alert alert-danger">
+            <% @employee.errors.each do |error| %>
+            <%= error.full_message %>
+            <% end %>
+          </div>
         <% end %>
       </div>
        <p class="form-heading">Personal Details</p>
