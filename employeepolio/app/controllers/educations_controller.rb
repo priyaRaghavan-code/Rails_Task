@@ -43,7 +43,7 @@ class EducationsController < ApplicationController
   def update
     respond_to do |format|
       if @education.update(education_params)
-        format.js 
+        # format.js 
         format.html { redirect_to employee_education_path(@employee), notice: 'Experience was successfully updated.' }
         format.json { render json: { html: render_to_string(partial: 'list_education.html.erb') } }
         # format.json { render json: { html: render_to_string(partial: 'edit_education_modal.html.erb')} }

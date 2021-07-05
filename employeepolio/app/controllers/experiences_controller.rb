@@ -1,4 +1,4 @@
-class PriorExperiencesController < ApplicationController
+class ExperiencesController < ApplicationController
   before_action :get_employee
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
@@ -18,8 +18,7 @@ class PriorExperiencesController < ApplicationController
   def edit
       @experience = @employee.experiences.find(params[:id])
       respond_to do |format|
-          format.js
-          format.html { redirect_to 'edit', notice: "Employee was created successfully ." }
+          format.json { render json: { html: render_to_string(partial: 'edit_experience_modal.html.erb')} }
       end
   end
 
@@ -42,9 +41,8 @@ class PriorExperiencesController < ApplicationController
   
     respond_to do |format|
       if @experience.update(experience_params)
-        format.js {render :action => "create"}
         format.html { redirect_to employee_experience_path(@employee), notice: 'Experience was updated successfully .' }
-        format.json { render :show, status: :ok, location: @experience }
+        format.json { render json: { html: render_to_string(partial: 'list_experience.html.erb') } }
       else
         format.html { render :edit }
         format.json { render json: @experience.errors, status: :unprocessable_entity }

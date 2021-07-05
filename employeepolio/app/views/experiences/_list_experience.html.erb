@@ -1,15 +1,15 @@
 <% @employee.experiences.each do |exp|%>
   <div class="edit-img">
-      <%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe, edit_employee_education_path(@employee,exp),:remote=>true%>
+      <%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe,"#",class: "experience_data" ,data: {url: edit_employee_experience_path(@employee,exp), target:"exp_modal" } %>
   </div>
   <div class="img-exp">
     <img class="img-fluid" src="https://www.nicepng.com/png/full/205-2053714_font-work-comments-work-experience-icon-for-resume.png" alt="Experience Image">
   </div>
   <div class= "data">
-  <p class="role-name"><%= exp.role%></p>
-  <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
-  <p class="grey-class"><%=format_date_string(exp.start_date)%> To <%=format_date_string(exp.end_date)%></p>
-  <p class="grey-class"><%= exp.location %> </p>
-  <hr class="my-4">
+    <p class="role-name"><%= exp.role%></p>
+    <p class="black-name"><%= exp.company_name%> . <%= exp.employement_type%></p>
+    <p class="grey-class"><%=format_date_string(exp.start_date)%> To <%=format_date_string(exp.end_date)%></p>
+    <p class="grey-class"><%= exp.location %> </p>
+    <hr class="my-4">
   </div>                  
 <% end %>
