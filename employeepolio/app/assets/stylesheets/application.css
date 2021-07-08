@@ -222,15 +222,39 @@
     border-radius: 20%;
 }
 
-.plus-icon {
+
+/* .plus-icon {
     overflow: hidden;
     max-width: 100%;
-}
+} */
 
 .fa-pencil-alt {
     color: black;
 }
 
 .modal-footer .save-btn {
+    border-radius: 50px;
+}
+
+.plus-icon {
+    margin-left: 630px;
+}
+
+.plus-icon:hover,
+.plus-iconexp:hover {
+    color: var(--grey-color);
+    border-radius: 20%;
+}
+
+.plus-iconexp {
+    margin-left: 620px;
+}
+
+.fa-plus-circle {
+    color: black;
+}
+
+.modal-footer .close-btn {
+    right: -30px;
     border-radius: 50px;
 }

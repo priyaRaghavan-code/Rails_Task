@@ -38,7 +38,9 @@
   <% if @employee.experiences.exists? %>
         <div class="card experinece-card">
               <div class="card-body ">
-                  <h5 class="card-title">Experience</h5>
+                  <div id="educationid">
+                    <h5 class="card-title">Experience<%= link_to ('<i class="fa fa-plus-circle plus-iconexp"></i>').html_safe,"#",class: "exp_data" ,data: { target:"#add_exp_modal", toggle:"modal" } %></h5>
+                  </div>
                   <div class="card-content">
                     <div id="experiencecont">
                       <%= render partial:"experiences/list_experience" %>
@@ -53,8 +55,8 @@
     <% if @employee.educations.exists? %>
         <div class="card experinece-card"  >
                 <div class="card-body ">
-                    <div id="educationid" class="">
-                      <h5 class="card-title">Education</h5>
+                    <div id="educationid">
+                      <h5 class="card-title">Education<%= link_to ('<i class="fa fa-plus-circle plus-icon"></i>').html_safe,"#",class: "edu_data" ,data: {target:"#add_edu_modal",toggle:"modal"} %></h5>
                     </div>
                     <div class="card-content">
                       <div id="educationcont">
@@ -70,7 +72,7 @@
 </div>
 </div>
 
-<!-- Modal -->
+<!-- ContactModal -->
 <div class="modal fade" id="contact_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -92,6 +94,40 @@
 
 <div id="education_container"></div>
 <div id="experience_container"></div>
+
+<!-- ExpModal -->
+<div class="modal fade" tabindex="-1" id="add_exp_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add experinece</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p><%= render partial:'experiences/form.html.erb',locals: { experience: @employee.experiences.build } %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EduModal -->
+<div class="modal fade" tabindex="-1" id="add_edu_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Education</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p><%= render partial:'educations/form.html.erb',locals: { education: @employee.educations.build } %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
