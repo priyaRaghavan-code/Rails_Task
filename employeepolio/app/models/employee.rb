@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  self.per_page = 2
   has_many :experiences, dependent: :destroy
   accepts_nested_attributes_for :experiences, allow_destroy: true
 

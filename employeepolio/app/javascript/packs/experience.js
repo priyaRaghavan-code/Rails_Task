@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('.experience_data').click(function(e) {
         e.preventDefault();
+        debugger;
         var modal_data = $(this).data('target');
         var url = $(this).data('url');
         $target = $('#experience_container');

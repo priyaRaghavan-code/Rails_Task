@@ -1,31 +1,30 @@
 <%= form_with(model: [@employee,education],id:"editFormId", local: false) do |f| %>
-  <div class = "container">
-      <div class="row">
-        <div class="col">
-          <%=f.label :Institution_Name%>
-          <%=f.text_field :institution_name, class:"form-control edu_name", placeholder: "Institution Name" %>
-        </div>
-        <div class="col">
-          <%=f.label :Grade%>
-          <%=f.text_field :grade, class:"form-control edu_grade", placeholder: "Grade" %>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <%=f.label :Institution_Name%>
+        <%=f.text_field :institution_name, class:"form-control edu_name", placeholder: "Institution Name" %>
       </div>
+      <div class="col">
+        <%=f.label :Grade%>
+        <%=f.text_field :grade, class:"form-control edu_grade", placeholder: "Grade" %>
+      </div>
+    </div>
 
-      <div class="row">
-        <div class="col">
-          <%=f.label :start_Date%>
-          <%=f.date_field :start_date, class:"form-control edu_sdate" ,placeholder: "StartDate"%>
-        </div>
-        <div class="col">
-          <%=f.label :End_Date%>
-          <%=f.date_field :end_date, class:"form-control edu_edate", placeholder: "EndDate" %>
-        </div>
+    <div class="row">
+      <div class="col">
+        <%=f.label :start_Date%>
+        <%=f.date_field :start_date, class:"form-control edu_sdate" ,placeholder: "StartDate"%>
       </div>
+      <div class="col">
+        <%=f.label :End_Date%>
+        <%=f.date_field :end_date, class:"form-control edu_edate", placeholder: "EndDate" %>
+      </div>
+    </div>
   </div>
-  <br/><br/>
-  <div class="modal-footer">
-    <%= button_to "Delete",[@employee,education],class:"btn btn-primary close-btn", method: :delete,  id:"editFormId" , remote: true%>
+  <br /><br />
+  <div>
+    <%= link_to "Delete",[@employee,education],class:"btn btn-primary close-btn", method: :delete,  id:"editFormId" , remote: true%>
     <button type="submit" class="btn btn-primary save-btn">Save</button>
   </div>
-  <% end %>
-
+<% end %>
