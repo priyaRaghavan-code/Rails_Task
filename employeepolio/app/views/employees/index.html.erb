@@ -78,10 +78,9 @@
   </div>
 </div>
 
-<%
-=begin%>
- <%= will_paginate (@employees,2)%>  
-<%
-=end%>
+ <div class="pagy">
+        <%= pagy_bootstrap_nav(@pagy).html_safe %>
+ </div>
+
 
 

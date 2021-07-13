@@ -3,7 +3,8 @@ class EmployeesController < ApplicationController
 
 
   def index
-    @employees = Employee.paginate(page: params[:page])
+    # @employees = Employee.paginate(page: params[:page])
+    @pagy, @employees = pagy(Employee.all,items: 3)
   end
 
   def show 

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   add_flash_types :error, :success
 
   def after_sign_in_path_for(resource)
