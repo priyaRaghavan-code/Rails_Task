@@ -193,6 +193,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    ruby_http_client (3.5.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -208,6 +209,11 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sendgrid-actionmailer (3.2.0)
+      mail (~> 2.7)
+      sendgrid-ruby (~> 6.4)
+    sendgrid-ruby (6.4.0)
+      ruby_http_client (~> 3.4)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -273,6 +279,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0, >= 5.0.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-actionmailer
   spring
   turbolinks (~> 5)
   tzinfo-data

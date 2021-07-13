@@ -38,7 +38,9 @@ gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
 gem 'rexml', '~> 3.2', '>= 3.2.5'
 gem 'devise', '~> 4.8'
 gem 'bootstrap_jt', '~> 0.1.0'
+gem 'sendgrid-actionmailer'
 gem 'pagy'
+
 
 
 group :development, :test do
