@@ -1,6 +1,8 @@
 <% @employee.experiences.each do |exp|%>
   <div class="edit-img">
+    <% if @employee.user_id == current_user.id%>
       <%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe,"#",class: "experience_data" ,data: {url: edit_employee_experience_path(@employee,exp), target:"exp_modal" } %>
+    <% end %> 
   </div>
   <div class="img-exp">
     <img class="img-fluid" src="https://www.nicepng.com/png/full/205-2053714_font-work-comments-work-experience-icon-for-resume.png" alt="Experience Image">

@@ -34,6 +34,9 @@ class EmployeesController < ApplicationController
 
   def edit 
     employee
+    respond_to do |format|
+      format.json { render json: { html: render_to_string(partial: 'edit_about.html.erb') } }
+    end
   end
 
   def update 
@@ -50,6 +53,11 @@ class EmployeesController < ApplicationController
     employee.destroy
     redirect_to employees_path
   end
+
+  def search
+    
+  end
+
 
   private 
     def allowed_params

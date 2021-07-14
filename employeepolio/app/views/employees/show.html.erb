@@ -28,7 +28,11 @@
     <p class="spacing-class">
       <div class="card experinece-card">
         <div class="card-body ">
-          <h5 class="card-title">About</h5>
+          <h5 class="card-title">About
+            <% if @employee.user_id == current_user.id%>
+            <%= link_to ('<i class="fas fa-pencil-alt icon-edit"></i>').html_safe,"#",class: "about_data",data: { target:"#edit_about_modal", toggle:"modal" } %>
+            <% end %>
+          </h5>
           <div class="card-content">
             <p class="black-name"><%=@employee.about%></p>
           </div>
@@ -42,7 +46,10 @@
         <div class="card-body ">
           <div id="educationid">
             <h5 class="card-title">
-              Experience<%= link_to ('<i class="fa fa-plus-circle plus-iconexp"></i>').html_safe,"#",class: "exp_data" ,data: { target:"#add_exp_modal", toggle:"modal" } %>
+              Experience
+              <% if @employee.user_id == current_user.id%>
+              <%= link_to ('<i class="fa fa-plus-circle plus-iconexp"></i>').html_safe,"#",class: "exp_data" ,data: { target:"#add_exp_modal", toggle:"modal" } %>
+              <% end %>
             </h5>
           </div>
           <div class="card-content">
@@ -59,7 +66,10 @@
         <div class="card-body ">
           <div id="educationid">
             <h5 class="card-title">
-              Education<%= link_to ('<i class="fa fa-plus-circle plus-icon"></i>').html_safe,"#",class: "edu_data" ,data: {target:"#add_edu_modal",toggle:"modal"} %>
+              Education
+              <% if @employee.user_id == current_user.id%>
+              <%= link_to ('<i class="fa fa-plus-circle plus-icon"></i>').html_safe,"#",class: "edu_data" ,data: {target:"#add_edu_modal",toggle:"modal"} %>
+              <% end %>
             </h5>
           </div>
           <div class="card-content">
@@ -98,6 +108,29 @@
 
 <div id="education_container"></div>
 <div id="experience_container"></div>
+<div id="about_container"></div>
+
+
+<!-- AboutModal -->
+<div class="modal fade" tabindex="-1" id="edit_about_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit About</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="aboutcont">
+        <%= render partial:'edit_about'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 
 <!-- EduModal -->
 <div class="modal fade" tabindex="-1" id="add_edu_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -132,3 +165,4 @@
     </div>
   </div>
 </div>
+
