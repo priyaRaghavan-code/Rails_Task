@@ -10,7 +10,9 @@ class Employee < ApplicationRecord
 
   validates :name,:age,:mobile,:gender,:email,:skills,:address, :presence => true
   validates :name,  presence: true, length: { maximum: 70 }
+  VALID_MOBILE_REGEX = /\A(\+\d{1,3}[- ]?)?\d{10}\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 300 },format: { with: VALID_EMAIL_REGEX },uniqueness: true
+  validates :mobile, presence: true, length: { maximum: 10 },format: { with: VALID_MOBILE_REGEX },uniqueness: true
 
 end

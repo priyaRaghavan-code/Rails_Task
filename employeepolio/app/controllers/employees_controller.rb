@@ -55,7 +55,10 @@ class EmployeesController < ApplicationController
   end
 
   def search
-    
+    @query = params[:query]
+    @pagy, @employees = pagy(Employee.where("employees.skills LIKE ?",["%#{@query}%"]), items: 10)
+    @pagy, @employees = pagy(Employee.where("employees.name LIKE ?",["%#{@query}%"]), items: 10)
+    render "index"
   end
 
 
