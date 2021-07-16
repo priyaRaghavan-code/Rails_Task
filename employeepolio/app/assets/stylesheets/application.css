@@ -258,3 +258,20 @@
     right: -30px;
     border-radius: 50px;
 }
+
+.pagy {
+    float: right;
+    margin-right: 95px;
+    margin-top: 10px;
+}
+
+.sign-up {
+    margin-left: 90px;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 1;
+}
+
+.sign-up-heading {
+    font-weight: bold;
+}
