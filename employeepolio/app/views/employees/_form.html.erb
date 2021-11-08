@@ -1,15 +1,15 @@
-<%= form_for (@employee, remote: true) do |form|%>
+<%= form_for (@employee) do |form|%>
  <p class="spacing-class">
   <div class = "container">
     <div class="card">
       <div class="card-body">
       <div class="">
         <% if @employee.errors.any? %>
-        <div class="alert alert-danger">
-          <% @employee.errors.each do |error| %>
-          <%= error.full_message %>
-          <% end %>
-        </div>
+          <div class="alert alert-danger">
+            <% @employee.errors.each do |error| %>
+            <%= error.full_message %>
+            <% end %>
+          </div>
         <% end %>
       </div>
        <p class="form-heading">Personal Details</p>

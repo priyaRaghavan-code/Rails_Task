@@ -1,0 +1,18 @@
+<div class="modal fade" id="editEducationInfoModal" tabindex="-1" aria-labelledby="editEducationInfoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEducationInfoModalLabel">Edit Education</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="editEducationModalContent">
+
+                <%= render partial: 'educations/form', locals: {education: @education } %>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

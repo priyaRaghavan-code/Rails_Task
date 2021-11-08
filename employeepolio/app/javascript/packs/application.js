@@ -2,7 +2,6 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require jquery
@@ -10,7 +9,10 @@
 //= require tree .
 
 
-import Rails from "@rails/ujs"
+
+
+
+// import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
@@ -18,18 +20,14 @@ import "jquery"
 import "@fortawesome/fontawesome-free/js/all";
 
 
-Rails.start()
+// Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.css")
-
-document.addEventListener("turbolinks:load", () => {
-    flatpickr("[data-behavior='flatpickr']", {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "d-m-Y",
-    })
-})
+require("packs/certification")
+require("packs/education")
+require("packs/experience")
+require("packs/employee")

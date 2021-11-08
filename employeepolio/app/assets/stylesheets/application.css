@@ -102,7 +102,7 @@
 }
 
 .card-title {
-    margin-top: -30px;
+    margin-top: -6px;
     font-weight: 35px;
     color: var(--black-color);
 }
@@ -222,7 +222,56 @@
     border-radius: 20%;
 }
 
-.plus-icon {
+
+/* .plus-icon {
     overflow: hidden;
     max-width: 100%;
+} */
+
+.fa-pencil-alt {
+    color: black;
+}
+
+.modal-footer .save-btn {
+    border-radius: 50px;
+}
+
+.plus-icon {
+    margin-left: 630px;
+}
+
+.plus-icon:hover,
+.plus-iconexp:hover {
+    color: var(--grey-color);
+    border-radius: 20%;
+}
+
+.plus-iconexp {
+    margin-left: 620px;
+}
+
+.fa-plus-circle {
+    color: black;
+}
+
+.modal-footer .close-btn {
+    right: -30px;
+    border-radius: 50px;
+}
+
+.pagy {
+    float: right;
+    margin-right: 95px;
+    margin-top: 10px;
+}
+
+.sign-up {
+    margin-left: 90px;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 1;
+}
+
+.sign-up-heading {
+    font-weight: bold;
 }

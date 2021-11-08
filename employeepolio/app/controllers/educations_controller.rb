@@ -1,6 +1,6 @@
 class EducationsController < ApplicationController
   before_action :get_employee
-  # before_action :set_education, only: [:show, :edit, :update, :destroy]
+  before_action :set_education, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -18,7 +18,10 @@ class EducationsController < ApplicationController
 
   
   def edit
-    @employee.educations.find(params[:id])
+    @education = @employee.educations.find(params[:id])
+    respond_to do |format|
+      format.json { render json: { html: render_to_string(partial: 'edit_education_modal.html.erb',locals: {education: @education} ) } }
+    end
   end
 
 
@@ -28,7 +31,7 @@ class EducationsController < ApplicationController
         if @education.save
             format.js
             format.html { redirect_to @employee, notice: "Employee was successfully created." }
-            format.json { render :show, status: :created, location: @education }
+            format.json { render json: { html: render_to_string(partial: 'list_education.html.erb') } }
         else
             format.html { render :new }
             format.json { render json: @employee.errors, status: :unprocessable_entity }
@@ -40,9 +43,9 @@ class EducationsController < ApplicationController
   def update
     respond_to do |format|
       if @education.update(education_params)
-          format.js {render :action => "create"}
+        # format.js 
         format.html { redirect_to employee_education_path(@employee), notice: 'Experience was successfully updated.' }
-        format.json { render :show, status: :ok, location: @education }
+        format.json { render json: { html: render_to_string(partial: 'list_education.html.erb') } }
       else
         format.html { render :edit }
         format.json { render json: @education.errors, status: :unprocessable_entity }
@@ -56,7 +59,7 @@ class EducationsController < ApplicationController
     respond_to do |format|
       format.js {render :action => "create"}
       format.html { redirect_to employee_educations_path(@employee), notice: 'Experience was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { render json: { html: render_to_string(partial: 'list_education.html.erb') } }
     end
   end
 

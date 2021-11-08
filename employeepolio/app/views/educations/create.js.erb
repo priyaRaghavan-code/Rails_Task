@@ -1,6 +1,0 @@
-$(#educationid).modal('hide');
-$(".edu_name").val('');
-$(".edu_grade").val('');
-$(".edu_sdate").val('');
-$(".edu_edate").val('');
-$("#educationcontainer").prepend('<%= j render partial: 'list_education',locals: {educations: @employee.educations} %>');

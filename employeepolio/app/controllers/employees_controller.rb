@@ -1,6 +1,10 @@
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!
+
+
   def index
-    @employees = Employee.paginate(:page => params[:page], :per_page => 5)
+    # @employees = Employee.paginate(page: params[:page])
+    @pagy, @employees = pagy(Employee.all,items: 3)
   end
 
   def show 
@@ -11,17 +15,12 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     @employee.experiences.build
     @employee.educations.build
+    
   end
 
   def create
     @employee = Employee.new(allowed_params)
-    # if @employee.save
-    #   flash.now[:success] = "Saved the Employee Details"
-    #   redirect_to employees_path
-    # else
-    #   flash.now[:error] = "Unable to add the employee"
-    #   render 'new'
-    # end
+    @employee[:user_id]=current_user[:id]
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: "Employee was successfully created." }
@@ -31,11 +30,13 @@ class EmployeesController < ApplicationController
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def edit 
     employee
+    respond_to do |format|
+      format.json { render json: { html: render_to_string(partial: 'edit_about.html.erb') } }
+    end
   end
 
   def update 
@@ -52,6 +53,14 @@ class EmployeesController < ApplicationController
     employee.destroy
     redirect_to employees_path
   end
+
+  def search
+    @query = params[:query]
+    @pagy, @employees = pagy(Employee.where("employees.skills LIKE ?",["%#{@query}%"]), items: 10)
+    @pagy, @employees = pagy(Employee.where("employees.name LIKE ?",["%#{@query}%"]), items: 10)
+    render "index"
+  end
+
 
   private 
     def allowed_params

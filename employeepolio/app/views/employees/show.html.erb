@@ -1,73 +1,91 @@
 <div class="show-class">
-<div class="col-md-9">
-<p class="spacing-class">
-    <div class="card profile-card">
-            <div class="embed-responsive embed-responsive-1by1">
-                <%if @employee.banner.attached?%>
-                <%= image_tag (@employee.banner),class:"card-img-block img-fluid embed-responsive-item"%>
-                <%else%>
-                <img class="card-img-block img-fluid embed-responsive-item" src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="Card image cap">
-                <%end%>
-            </div>
-            <div class="card-body pt-5">
-                <% if @employee.image.attached?%>
-                <%= image_tag (@employee.image), class:"profile", alt:"profile-image"%>
-                <%else%>
-                <%= image_tag "user.png", class:"profile", alt:"profile-image"%>
-                <%end%>
-                <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i><%= @employee.name%></h5>
-                <p class="card-text"><%=@employee.address%> . <%=link_to 'Contact info', "#contact_modal","data-toggle" => "modal"%> </p>
-            </div>
-    </div>
+  <div class="col-md-9">
+    <p class="spacing-class">
+      <div class="card profile-card">
+        <div class="embed-responsive embed-responsive-1by1">
+          <%if @employee.banner.attached?%>
+          <%= image_tag (@employee.banner),class:"card-img-block img-fluid embed-responsive-item"%>
+          <%else%>
+          <img class="card-img-block img-fluid embed-responsive-item"
+            src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb"
+            alt="Card image cap">
+          <%end%>
+        </div>
+        <div class="card-body pt-5">
+          <% if @employee.image.attached?%>
+          <%= image_tag (@employee.image), class:"profile", alt:"profile-image"%>
+          <%else%>
+          <%= image_tag "user.png", class:"profile", alt:"profile-image"%>
+          <%end%>
+          <h5 class="card-title"><%= @employee.name%></h5>
+          <p class="card-text"><%=@employee.address%> .
+            <%=link_to 'Contact info', "#contact_modal","data-toggle" => "modal"%> </p>
+        </div>
+      </div>
     </p>
 
 
-  <p class="spacing-class">
-    <div class="card experinece-card">
-      <div class="card-body ">
-          <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>About</h5>
+    <p class="spacing-class">
+      <div class="card experinece-card">
+        <div class="card-body ">
+          <h5 class="card-title">About
+            <% if @employee.user_id == current_user.id%>
+            <%= link_to ('<i class="fas fa-pencil-alt icon-edit"></i>').html_safe,"#",class: "about_data",data: { target:"#edit_about_modal", toggle:"modal" } %>
+            <% end %>
+          </h5>
           <div class="card-content">
             <p class="black-name"><%=@employee.about%></p>
           </div>
-      </div>
-    </div>
-  </p>
-
-
-  <p class="spacing-class">
-  <% if @employee.experiences.exists? %>
-        <div class="card experinece-card">
-              <div class="card-body ">
-                  <h5 class="card-title"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>Experience</h5>
-                  <div class="card-content">
-                    <%= render partial:"experiences/list_experience" %>
-                  </div>
-              </div>
         </div>
-    <%end%>
+      </div>
+    </p>
+
+
+    <p class="spacing-class">
+      <div class="card experinece-card">
+        <div class="card-body ">
+          <div id="educationid">
+            <h5 class="card-title">
+              Experience
+              <% if @employee.user_id == current_user.id%>
+              <%= link_to ('<i class="fa fa-plus-circle plus-iconexp"></i>').html_safe,"#",class: "exp_data" ,data: { target:"#add_exp_modal", toggle:"modal" } %>
+              <% end %>
+            </h5>
+          </div>
+          <div class="card-content">
+            <div id="experiencecont">
+              <%= render partial:"experiences/list_experience" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </p>
 
     <p class="spacing-class">
-    <% if @employee.educations.exists? %>
-        <div class="card experinece-card"  >
-                <div class="card-body ">
-                    <div id="educationid" class="">
-                      <h5 class="card-title"><%= link_to ('<i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i>').html_safe, edit_employee_education_path(@employee,@employee.educations[0]),:remote=>true%>
-Education</h5>
-                    </div>
-                    <div class="card-content">
-                      <div id="educationContainers">
-                        <%= render partial: 'educations/list_education' ,locals: {educations: @employee.educations}%>
-                      </div>
-                    </div>
-                </div>
+      <div class="card experinece-card">
+        <div class="card-body ">
+          <div id="educationid">
+            <h5 class="card-title">
+              Education
+              <% if @employee.user_id == current_user.id%>
+              <%= link_to ('<i class="fa fa-plus-circle plus-icon"></i>').html_safe,"#",class: "edu_data" ,data: {target:"#add_edu_modal",toggle:"modal"} %>
+              <% end %>
+            </h5>
           </div>
-    <%end%>
+          <div class="card-content">
+            <div id="educationcont">
+              <%= render partial: 'educations/list_education'%>
+            </div>
+          </div>
+        </div>
+      </div>
     </p>
-</div>
+
+
+  </div>
 </div>
 
-<!-- Modal -->
+<!-- ContactModal -->
 <div class="modal fade" id="contact_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -78,15 +96,73 @@ Education</h5>
         </button>
       </div>
       <div class="modal-body">
-        <span class="black-heading"><i class="fas fa-pencil-alt icon-edit" aria-hidden="true"></i><%=image_tag "email.png",class:"email-img",alt:"Profile image"%> Email</span><br/>
-        <%= @employee.email%><br/>
-        <span class="black-heading"><%=image_tag "phone.png",class:"email-img",alt:"Profile image"%> Mobile Number</span><br/>
+        <span class="black-heading"><%=image_tag "email.png",class:"email-img",alt:"Profile image"%> Email</span><br />
+        <%= @employee.email%><br />
+        <span class="black-heading"><%=image_tag "phone.png",class:"email-img",alt:"Profile image"%> Mobile
+          Number</span><br />
         <p class="modal-data"><%= @employee.mobile%></p>
       </div>
     </div>
   </div>
 </div>
 
+<div id="education_container"></div>
+<div id="experience_container"></div>
+<div id="about_container"></div>
 
 
+<!-- AboutModal -->
+<div class="modal fade" tabindex="-1" id="edit_about_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit About</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="aboutcont">
+        <%= render partial:'edit_about'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- EduModal -->
+<div class="modal fade" tabindex="-1" id="add_edu_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Education</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><%= render partial:'educations/form.html.erb',locals: { education: @employee.educations.build } %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ExpModal -->
+<div class="modal fade" tabindex="-1" id="add_exp_modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add experinece</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><%= render partial:'experiences/form.html.erb',locals: { experience: @employee.experiences.build } %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
